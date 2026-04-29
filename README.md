@@ -3,6 +3,9 @@
 **End-to-end tool that turns natural project descriptions into a draft estimate and a client-ready proposal.**
 
 ---
+## 🌐 Live Demo
+
+[https://your-app.streamlit.app](https://ai-proposal-tool-j33q5ljjxbx5n3mnvkfpbd.streamlit.app/)
 
 ## 🚀 Overview
 
