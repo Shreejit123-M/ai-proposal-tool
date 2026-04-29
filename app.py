@@ -41,17 +41,20 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ─── Gemini Client Setup ──────────────────────────────────────────────────────
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyATnodZTie9J1JMQgn6UVA_oSUvEpJN0aw")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
 client = None
 
-if GEMINI_API_KEY:
+if not GEMINI_API_KEY:
+    st.error("❌ GEMINI_API_KEY is not set. Please add it in environment variables or Streamlit secrets.")
+else:
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
     except Exception as e:
         st.error(f"Failed to initialise Gemini client: {e}")
 
 GEMINI_MODEL = "models/gemini-2.5-flash"
-FALLBACK_MODEL = "gemini-1.5-pro"
+FALLBACK_MODEL = "models/gemini-2.0-flash"
 
 
 
